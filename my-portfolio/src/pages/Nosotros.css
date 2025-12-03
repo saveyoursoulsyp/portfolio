@@ -1,0 +1,168 @@
+/* GLOBAL FONT */
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ----------------------------- */
+/* ABOUT SECTION */
+/* ----------------------------- */
+
+.about-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* Each row (mobile default) */
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  text-align: left;
+  position: relative;
+}
+
+/* TEXT STYLING */
+.about-info h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-info p {
+  margin-bottom: 16px;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* CV BUTTON */
+.cv-btn {
+  display: block;
+  margin: 25px auto 0 auto;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, rgb(79, 196, 168), #555);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: 0.25s;
+  text-align: center;
+}
+
+.cv-btn:hover {
+  background: #333;
+}
+
+/* IMAGES */
+.about-img img {
+  width: 100%;
+  max-width: 650px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  display: block;
+  margin: 40px auto;
+}
+
+/* ----------------------------- */
+/* DESKTOP BEHAVIOR */
+/* ----------------------------- */
+
+@media (min-width: 900px) {
+
+  .row {
+    grid-template-columns: 1fr 40px 1fr;
+    align-items: center;
+    text-align: left;
+  }
+
+  /* Decorative vertical line */
+  .row::before {
+    content: "";
+    width: 2px;
+    height: 70%;
+    background: #ddd;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* DEFAULT (odd rows): */
+  .row:nth-child(odd) .about-info {
+    grid-column: 1;
+  }
+
+  .row:nth-child(odd) .about-img {
+    grid-column: 3;
+  }
+
+  /* EVEN ROWS */
+  .row:nth-child(even) .about-info {
+    grid-column: 3;
+  }
+
+  .row:nth-child(even) .about-img {
+    grid-column: 1;
+  }
+
+  /* Desktop image size */
+  .about-img img {
+    max-width: 520px;
+    height: 360px;
+    margin: 0 auto;
+  }
+}
+
+/* ----------------------------- */
+/* WHAT DEFINES ME */
+/* ----------------------------- */
+
+.about-cards {
+  text-align: center;
+  padding: 80px 16px;
+}
+
+.about-cards h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.card-grid {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  gap: 20px;
+}
+
+.small-card {
+  padding: 26px;
+  background: linear-gradient(135deg, rgb(79, 196, 168), #555);
+  border: 3px solid #ddd;
+  border-radius: 22px;
+}
+
+.small-card h3 {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* ----------------------------- */
+/* MOBILE/TABLET REORDERING */
+/* ----------------------------- */
+
+@media (max-width: 899px) {
+  .row:nth-child(2) .about-info {
+    order: 1;
+  }
+
+  .row:nth-child(2) .about-img {
+    order: 2;
+  }
+}
